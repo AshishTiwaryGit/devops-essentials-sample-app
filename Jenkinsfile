@@ -4,6 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
+                git update-index --chmod=+x gradlew
                 sh './gradlew build'
                 archiveArtifacts artifacts: 'src/index.html'
             }
